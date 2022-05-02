@@ -1,6 +1,6 @@
 # React-Cordova
 
-An sample architecture for initialize a project React 16.\* and Cordova
+An sample architecture for initialize a project React 18.\* and Cordova
 
 ```
 git clone git@github.com:poohia/react-cordova.git

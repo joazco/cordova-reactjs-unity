@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 import useStatusbar from "@awesome-cordova-library/statusbar/lib/react";
-import config from "../../config";
+import config from "../../config.json";
 
 const useStatusBarConfig = () => {
   const {
@@ -13,20 +13,21 @@ const useStatusBarConfig = () => {
   } = useStatusbar();
 
   const configStatusBar = useCallback(() => {
-    const fullScreenConfig = config.fullscreen ? config.fullscreen : false;
+    const {
+      statusbar: {
+        show: showConfig,
+        overlaysWebView: overlaysWebViewConfig,
+        backgroundColor: backgroundColorConfig,
+        contentStyle: contentStyleConfig,
+      },
+      fullscreen: fullScreenConfig,
+    } = config;
+
     if (fullScreenConfig) {
       overlaysWebView(true);
       hide();
       return;
     }
-    const showConfig = config.statusbar?.show || true;
-
-    const overlaysWebViewConfig = config.statusbar?.overlaysWebView || true;
-    const backgroundColorConfig =
-      config.statusbar?.backgroundColor || "#000000";
-    const contentStyleConfig = config.statusbar?.contentStyle || "default";
-
-    /** */
     if (showConfig) {
       show();
     } else {

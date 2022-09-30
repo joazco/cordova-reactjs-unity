@@ -1,3 +1,5 @@
+import CordovaConfig from "./hooks/config.interface";
+
 const config: CordovaConfig = {
   name: "CordovaReact",
   build: {
@@ -18,9 +20,9 @@ const config: CordovaConfig = {
   fullscreen: true,
   statusbar: {
     show: true,
-    backgroundColor: "#3498db",
+    backgroundColor: "#ffffff",
     overlaysWebView: false,
-    contentStyle: "lightContent",
+    contentStyle: "default",
   },
   screenOrientation: "any",
   splashscreen: {

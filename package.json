@@ -24,10 +24,12 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "preinstall": "node hooks/before_start.js",
+    "prestart": "node hooks/before_start.js",
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "npm run prestart && react-scripts build",
+    "test": "npm run prestart && react-scripts test",
+    "eject": "npm run prestart && react-scripts eject"
   },
   "keywords": [
     "ecosystem:cordova"
@@ -53,7 +55,6 @@
     ]
   },
   "devDependencies": {
-    "cordova-android": "^11.0.0",
     "cordova-plugin-screen-orientation": "^3.0.2",
     "cordova-plugin-statusbar": "^3.0.0",
     "cordova-res": "^0.15.4",
@@ -64,8 +65,6 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-screen-orientation": {}
     },
-    "platforms": [
-      "android"
-    ]
+    "platforms": []
   }
 }

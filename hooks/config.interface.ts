@@ -1,4 +1,4 @@
-interface CordovaConfig {
+export default interface CordovaConfig {
   name: string;
   build: {
     version: string;

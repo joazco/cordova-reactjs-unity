@@ -2,6 +2,7 @@ const path = require("path");
 const { exec } = require("child_process");
 const fs = require("fs");
 const rimraf = require("rimraf");
+const execCopyConfig = require("./copyconfig");
 
 function renameOutputFolder(buildFolderPath, outputFolderPath) {
   return new Promise((resolve, reject) => {
@@ -40,6 +41,7 @@ function execPostReactBuild(buildFolderPath, outputFolderPath) {
 }
 
 const execBuildReact = () => {
+  execCopyConfig();
   const projectPath = path.resolve(
     process.cwd(),
     "./node_modules/.bin/react-scripts"

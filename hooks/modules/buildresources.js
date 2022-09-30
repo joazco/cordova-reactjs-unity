@@ -3,17 +3,21 @@ const fs = require("fs");
 const { exec } = require("child_process");
 
 function overrideColorsXML() {
-  fs.copyFileSync(
-    `${__dirname}/../../resources/colors.xml`,
-    `${__dirname}/../../platforms/android/app/src/main/res/values/colors.xml`
-  );
+  if (fs.existsSync(`${__dirname}/../../platforms/android`)) {
+    fs.copyFileSync(
+      `${__dirname}/../../resources/colors.xml`,
+      `${__dirname}/../../platforms/android/app/src/main/res/values/colors.xml`
+    );
+  }
 }
 
 function overrideIconSplashScreen() {
-  fs.copyFileSync(
-    `${__dirname}/../../resources/splash.xml`,
-    `${__dirname}/../../platforms/android/app/src/main/res/drawable/ic_cdv_splashscreen.xml`
-  );
+  if (fs.existsSync(`${__dirname}/../../platforms/android`)) {
+    fs.copyFileSync(
+      `${__dirname}/../../resources/splash.xml`,
+      `${__dirname}/../../platforms/android/app/src/main/res/drawable/ic_cdv_splashscreen.xml`
+    );
+  }
 }
 
 function execBuildResources() {

@@ -39,11 +39,12 @@ function execPostReactBuild(buildFolderPath, outputFolderPath) {
   });
 }
 
-module.exports = () => {
+const execBuildReact = () => {
   const projectPath = path.resolve(
     process.cwd(),
     "./node_modules/.bin/react-scripts"
   );
+
   return new Promise((resolve, reject) => {
     exec(`${projectPath} build`, (error) => {
       if (error) {
@@ -52,8 +53,8 @@ module.exports = () => {
         return;
       }
       execPostReactBuild(
-        path.resolve(__dirname, "../build/"),
-        path.join(__dirname, "../www/")
+        path.resolve(__dirname, "../../build/"),
+        path.join(__dirname, "../../www/")
       )
         .then((s) => {
           console.log(s);
@@ -66,3 +67,5 @@ module.exports = () => {
     });
   });
 };
+
+module.exports = execBuildReact;

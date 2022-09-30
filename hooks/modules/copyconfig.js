@@ -91,9 +91,10 @@ const copyFiles = () => {
 
 const execCopyConfig = () => {
   if (fs.existsSync(path.resolve(__dirname, "../../config.ts"))) {
-    generateConfigJSONFromTypescript().then(copyFiles);
+    return generateConfigJSONFromTypescript().then(copyFiles);
   } else {
     copyFiles();
+    return Promise.resolve();
   }
 };
 

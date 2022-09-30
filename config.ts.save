@@ -1,4 +1,4 @@
-import CordovaConfig from "./hooks/config.interface";
+import CordovaConfig from "./config.interface";
 
 const config: CordovaConfig = {
   name: "CordovaReact",

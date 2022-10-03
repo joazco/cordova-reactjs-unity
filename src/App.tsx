@@ -1,8 +1,12 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { useScreenOrientationConfig, useStatusBarConfig } from "./hooks";
 
 const App = () => {
+  useScreenOrientationConfig();
+  useStatusBarConfig();
+
   return (
     <div className="App">
       <header className="App-header">

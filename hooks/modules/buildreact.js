@@ -2,6 +2,7 @@ const path = require("path");
 const { exec } = require("child_process");
 const fs = require("fs");
 const rimraf = require("rimraf");
+const execCopyConfig = require("./copyconfig");
 
 function renameOutputFolder(buildFolderPath, outputFolderPath) {
   return new Promise((resolve, reject) => {
@@ -39,11 +40,13 @@ function execPostReactBuild(buildFolderPath, outputFolderPath) {
   });
 }
 
-module.exports = () => {
+const execBuildReact = () => {
+  execCopyConfig();
   const projectPath = path.resolve(
     process.cwd(),
     "./node_modules/.bin/react-scripts"
   );
+
   return new Promise((resolve, reject) => {
     exec(`${projectPath} build`, (error) => {
       if (error) {
@@ -52,8 +55,8 @@ module.exports = () => {
         return;
       }
       execPostReactBuild(
-        path.resolve(__dirname, "../build/"),
-        path.join(__dirname, "../www/")
+        path.resolve(__dirname, "../../build/"),
+        path.join(__dirname, "../../www/")
       )
         .then((s) => {
           console.log(s);
@@ -66,3 +69,5 @@ module.exports = () => {
     });
   });
 };
+
+module.exports = execBuildReact;

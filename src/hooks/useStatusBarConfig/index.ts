@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from "react";
 import useStatusbar from "@awesome-cordova-library/statusbar/lib/react";
+
 import config from "../../config.json";
 
 const useStatusBarConfig = () => {

@@ -1,10 +1,10 @@
 import CordovaConfig from "./config.interface";
 
 const config: CordovaConfig = {
-  name: "CordovaReact",
+  name: "CordovaReactUnity",
   build: {
     version: "1.0.0",
-    id: "com.joazco.reactcordova",
+    id: "com.joazco.reactcordovaunity",
     android: {
       versionCode: "1",
     },
@@ -17,14 +17,14 @@ const config: CordovaConfig = {
     link: "https://joazco.com",
     name: "Jordan AZOULAY",
   },
-  fullscreen: false,
+  fullscreen: true,
   statusbar: {
     show: true,
     backgroundColor: "#ffffff",
     overlaysWebView: true,
     contentStyle: "default",
   },
-  screenOrientation: "any",
+  screenOrientation: "landscape",
   splashscreen: {
     fadeSplashscreen: true,
     fadeSplashscreenDuration: 500,

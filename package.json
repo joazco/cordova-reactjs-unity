@@ -55,15 +55,19 @@
     ]
   },
   "devDependencies": {
+    "cordova-plugin-file": "^7.0.0",
     "cordova-plugin-screen-orientation": "^3.0.2",
     "cordova-plugin-statusbar": "^3.0.0",
+    "cordova-plugin-wkwebview-file-xhr": "^3.1.0",
     "cordova-res": "^0.15.4",
     "es6-promise-plugin": "^4.2.2"
   },
   "cordova": {
     "plugins": {
       "cordova-plugin-statusbar": {},
-      "cordova-plugin-screen-orientation": {}
+      "cordova-plugin-screen-orientation": {},
+      "cordova-plugin-wkwebview-file-xhr": {},
+      "cordova-plugin-file": {}
     },
     "platforms": []
   }

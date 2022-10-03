@@ -38,3 +38,6 @@ hooks/modules/config.interface.js
 resources/ios
 resources/android/icon
 resources/android/splash
+
+public/unity/TemplateData/
+public/unity/index.html

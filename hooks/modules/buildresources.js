@@ -3,7 +3,11 @@ const fs = require("fs");
 const { exec } = require("child_process");
 
 function overrideColorsXML() {
-  if (fs.existsSync(`${__dirname}/../../platforms/android`)) {
+  if (
+    fs.existsSync(
+      `${__dirname}/../../platforms/android/app/src/main/res/values/`
+    )
+  ) {
     fs.copyFileSync(
       `${__dirname}/../../resources/colors.xml`,
       `${__dirname}/../../platforms/android/app/src/main/res/values/colors.xml`
@@ -12,7 +16,11 @@ function overrideColorsXML() {
 }
 
 function overrideIconSplashScreen() {
-  if (fs.existsSync(`${__dirname}/../../platforms/android`)) {
+  if (
+    fs.existsSync(
+      `${__dirname}/../../platforms/android/app/src/main/res/drawable`
+    )
+  ) {
     fs.copyFileSync(
       `${__dirname}/../../resources/splash.xml`,
       `${__dirname}/../../platforms/android/app/src/main/res/drawable/ic_cdv_splashscreen.xml`

@@ -1,29 +1,37 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { useScreenOrientationConfig, useStatusBarConfig } from "./hooks";
+import React, { useEffect, useState } from "react";
 
-const App = () => {
+import { UnityContext } from "./contexts";
+import { useScreenOrientationConfig, useStatusBarConfig } from "./hooks";
+import { UnityView } from "./pages";
+
+const App: React.FC = () => {
+  /** Unity context vars */
+  const [unityInstance, setUnityInstance] = useState<
+    UnityInstance | undefined
+  >();
+  const [unityLoaded, setUnityLoaded] = useState<boolean>(false);
+  const [progressUnity, setProgressUnity] = useState<number>(0);
+
   useScreenOrientationConfig();
   useStatusBarConfig();
 
+  useEffect(() => {
+    console.log(`Unity loading ${progressUnity}%`);
+  }, [progressUnity]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UnityContext.Provider
+      value={{
+        unityInstance,
+        unityLoaded,
+        progressUnity,
+        setUnityInstance,
+        setProgressUnity,
+        setUnityLoaded,
+      }}
+    >
+      <UnityView />
+    </UnityContext.Provider>
   );
 };
 

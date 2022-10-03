@@ -1,6 +1,6 @@
-# Cordova ReactJS
+# Cordova ReactJS Unity WEBGL
 
-An sample architecture for initialize a project React 18.\* and Cordova with multiples pre-configurations to help.
+Repository for your application mobile, web and software Unity webGL.
 
 ## Installation
 
@@ -36,6 +36,94 @@ Edit `config.ts`
 | `splashscreen.splashscreenDelay`        | `number`                                                                                                       | **Default: 3000**. Amount of time in milliseconds to wait before automatically hide splash screen.                                                                                                                                                                                                                                         |
 | `splashscreen.fadeSplashscreen`         | `boolean`                                                                                                      | **Default: true**. Set to false to prevent the splash screen from fading in and out when its display state changes.                                                                                                                                                                                                                        |
 | `splashscreen.fadeSplashscreenDuration` | `number`                                                                                                       | **Default: 500**. Specifies the number of milliseconds for the splash screen fade effect to execute.                                                                                                                                                                                                                                       |
+
+## Unity
+
+### Export Unity Project
+
+1. File -> Build Settings... -> WebGL
+2. File -> Build Settings... -> Player Settings -> Player -> Publishing Settings -> Check Decompression Fallback
+3. File -> Build Settings... -> WebGL -> Build
+4. Select folder `cordova-reactjs-unity/public/unity` and replace existant
+
+### Communication Unity webGL - ReactJS
+
+#### Unity - ReactJS
+
+On Unity copy file `cordova-reactjs-unity/resources/SendEvents.jslib` to your project Unity `Assets/Plugins/SendEvents.jslib`
+
+Then you can send message to ReactJS:
+
+1. Without Data
+
+```cs
+using System.Runtime.InteropServices;
+
+public class MyScript{
+    .....
+
+    Start(){
+        sendDocumentEvent("My Event");
+    }
+
+    #if UNITY_WEBGL && !UNITY_EDITOR
+       [DllImport("__Internal")] private static extern void sendDocumentEvent(string str);
+    #else
+        private static void sendDocumentEvent(string str)
+        {
+        }
+    #endif
+}
+```
+
+2. With Data
+
+```cs
+using System.Runtime.InteropServices;
+
+public class MyScript{
+    .....
+
+    Start(){
+        sendDocumentEventWithData("My Event", data);
+    }
+
+    #if UNITY_WEBGL && !UNITY_EDITOR
+       [DllImport("__Internal")] private static extern void sendDocumentEventWithData(string eventName, string eventData);
+    #else
+        private static void sendDocumentEventWithData(string eventName, string eventData)
+        {
+        }
+    #endif
+    }
+}
+```
+
+3. On ReactJS you just need to listen event or use useUnity hook on `src/hooks`
+
+```typescript
+import { useUnity } from "src/hooks";
+
+document.addEventListener("event from Unity", (event) => {
+  const data = event.detail;
+});
+// OR
+const { listenEvent } = useUnity();
+listenEvent("event from Unity", (data) => {
+  console.log(data);
+});
+```
+
+#### ReactJS - Unity
+
+Use custom hook useUnity to execute Function from Game Object.
+
+```typescript
+import { useUnity } from "src/hooks";
+
+const { sendMessage } = useUnity();
+sendMessage("Game Object Name", "Function Name", ...data);
+```
 
 ## Ios
 
@@ -100,3 +188,4 @@ cordova build electron --release
 - Generation Icon/Splashscreen with **cordova-res** [https://github.com/ionic-team/capacitor-assets](https://github.com/ionic-team/capacitor-assets)
 - Android Splashscreen [https://developer.android.com/develop/ui/views/launch/splash-screen](https://developer.android.com/develop/ui/views/launch/splash-screen)
 - awesome-cordova-library [https://github.com/joazco/awesome-cordova-library](https://github.com/joazco/awesome-cordova-library)
+- Unity Interaction with browser scripting: [https://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html](https://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html)

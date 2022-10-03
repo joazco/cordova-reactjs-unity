@@ -31,8 +31,8 @@ Edit `config.ts`
 | `statusbar.show`                        | `boolean`                                                                                                      | **Default: true**. Shows the statusbar.                                                                                                                                                                                                                                                                                                    |
 | `statusbar.backgroundColor`             | `string`                                                                                                       | **Default: #ffffff**. Set the background color of the statusbar by a hex string (#RRGGBB) at startup                                                                                                                                                                                                                                       |
 | `statusbar.overlaysWebView`             | `boolean`                                                                                                      | **Default: true**. Make the statusbar overlay or not overlay the WebView at startup                                                                                                                                                                                                                                                        |
-| `statusbar.contentStyle`                | `default` `lightContent`                                                                                       | **Default: 'default'**. Set the status bar style (e.g. text color)                                                                                                                                                                                                                                                                         |
-| `screenOrientation`                     | `any` `landscape` `landscape-primary` `landscape-secondary` `portrait` `portrait-primary` `portrait-secondary` | **Default: 'default'**. Set screen orientation                                                                                                                                                                                                                                                                                             |
+| `statusbar.contentStyle`                | `default` `lightContent`                                                                                       | **Default: default**. Set the status bar style (e.g. text color)                                                                                                                                                                                                                                                                           |
+| `screenOrientation`                     | `any` `landscape` `landscape-primary` `landscape-secondary` `portrait` `portrait-primary` `portrait-secondary` | **Default: any**. Set screen orientation                                                                                                                                                                                                                                                                                                   |
 | `splashscreen.splashscreenDelay`        | `number`                                                                                                       | **Default: 3000**. Amount of time in milliseconds to wait before automatically hide splash screen.                                                                                                                                                                                                                                         |
 | `splashscreen.fadeSplashscreen`         | `boolean`                                                                                                      | **Default: true**. Set to false to prevent the splash screen from fading in and out when its display state changes.                                                                                                                                                                                                                        |
 | `splashscreen.fadeSplashscreenDuration` | `number`                                                                                                       | **Default: 500**. Specifies the number of milliseconds for the splash screen fade effect to execute.                                                                                                                                                                                                                                       |
@@ -46,7 +46,7 @@ cordova platform add ios
 cordova platform prepare ios
 ```
 
-Open file `platform/ios/\*.xcworkspace` with XCode
+Open file `platform/ios/*.xcworkspace` with XCode
 
 ### Icon and Splashscreen
 
@@ -71,7 +71,7 @@ They needs to be 432x432 pixels.
 
 ### Splashscreen
 
-Android need an xml at resources/splash.xml (see more)[https://developer.android.com/develop/ui/views/launch/splash-screen].
+Android need an xml at resources/splash.xml [see more](https://developer.android.com/develop/ui/views/launch/splash-screen).
 You can change background color at resources/colors.xml.
 
 ## Browser
@@ -97,6 +97,6 @@ cordova build electron --release
 
 - Cordova [https://cordova.apache.org/docs/en/latest/](https://cordova.apache.org/docs/en/latest/)
 - ReactJS [https://reactjs.org/docs/getting-started.html](https://reactjs.org/docs/getting-started.html)
-- Generation Icon/Splashscreen with cordova-res [https://github.com/ionic-team/capacitor-assets](https://github.com/ionic-team/capacitor-assets)
+- Generation Icon/Splashscreen with **cordova-res** [https://github.com/ionic-team/capacitor-assets](https://github.com/ionic-team/capacitor-assets)
 - Android Splashscreen [https://developer.android.com/develop/ui/views/launch/splash-screen](https://developer.android.com/develop/ui/views/launch/splash-screen)
-- Plugin Typescript Cordova [https://github.com/joazco/awesome-cordova-library](https://github.com/joazco/awesome-cordova-library)
+- awesome-cordova-library [https://github.com/joazco/awesome-cordova-library](https://github.com/joazco/awesome-cordova-library)

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget android-versionCode="1" id="com.joazco.reactcordova" ios-CFBundleVersion="1" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>CordovaReact v10000</name>
+    <name>CordovaReact</name>
     <description />
     <author email="jazoulay@joazco.com" href="https://joazco.com">Jordan AZOULAY</author>
     <content src="index.html" />
@@ -17,7 +17,7 @@
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="FadeSplashScreen" value="true" />
-    <preference name="FadeSplashScreenDuration" value="750" />
+    <preference name="FadeSplashScreenDuration" value="500" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon background="resources/android/icon/ldpi-background.png" density="ldpi" foreground="resources/android/icon/ldpi-foreground.png" />

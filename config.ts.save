@@ -17,17 +17,17 @@ const config: CordovaConfig = {
     link: "https://joazco.com",
     name: "Jordan AZOULAY",
   },
-  fullscreen: true,
+  fullscreen: false,
   statusbar: {
     show: true,
     backgroundColor: "#ffffff",
-    overlaysWebView: false,
+    overlaysWebView: true,
     contentStyle: "default",
   },
   screenOrientation: "any",
   splashscreen: {
     fadeSplashscreen: true,
-    fadeSplashscreenDuration: 750,
+    fadeSplashscreenDuration: 500,
     splashscreenDelay: 3000,
   },
 };

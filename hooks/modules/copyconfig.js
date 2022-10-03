@@ -19,7 +19,7 @@ const defaultValueStatusbar = (data) => {
     data.statusbar.backgroundColor = "#ffffff";
   }
   if (typeof data.statusbar.overlaysWebView === "undefined") {
-    data.statusbar.overlaysWebView = false;
+    data.statusbar.overlaysWebView = true;
   }
   if (typeof data.statusbar.contentStyle === "undefined") {
     data.statusbar.contentStyle = "default";

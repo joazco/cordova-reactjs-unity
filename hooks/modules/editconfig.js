@@ -68,7 +68,7 @@ const editSplashScreen = (xml) => {
         xml.widget.preference[i]["@_value"] =
           config.splashscreen && config.splashscreen.fadeSplashscreenDuration
             ? String(config.splashscreen.fadeSplashscreenDuration)
-            : "750";
+            : "500";
         break;
       default:
         return;

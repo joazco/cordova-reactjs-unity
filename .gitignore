@@ -41,3 +41,7 @@ resources/android/splash
 
 public/unity/TemplateData/
 public/unity/index.html
+
+public/plugins
+public/cordova_plugins.js
+public/cordova.js

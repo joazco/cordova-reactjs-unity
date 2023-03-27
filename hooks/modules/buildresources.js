@@ -32,9 +32,9 @@ function execBuildResources() {
   return new Promise((resolve, reject) => {
     const cordovaResPath = path.resolve(
       process.cwd(),
-      "node ./node_modules/cordova-res/bin/cordova-res"
+      "./node_modules/cordova-res/bin/cordova-res"
     );
-    exec(`${cordovaResPath}`, (error) => {
+    exec(`node ${cordovaResPath}`, (error) => {
       if (error) {
         reject();
         return;

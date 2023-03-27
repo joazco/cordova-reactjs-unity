@@ -19,6 +19,8 @@
     <preference name="FadeSplashScreen" value="true" />
     <preference name="FadeSplashScreenDuration" value="500" />
     <platform name="android">
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="resources/ic_cdv_splashscreen.png" />
+        <preference name="AndroidWindowSplashScreenBackground" value="#a5a5a5" />
         <allow-intent href="market:*" />
         <icon background="resources/android/icon/ldpi-background.png" density="ldpi" foreground="resources/android/icon/ldpi-foreground.png" />
         <icon background="resources/android/icon/mdpi-background.png" density="mdpi" foreground="resources/android/icon/mdpi-foreground.png" />
